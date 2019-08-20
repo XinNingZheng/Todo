@@ -22,6 +22,10 @@ const config = {
                 loader: 'vue-loader'
             },
             {
+                test: /\.jsx$/,
+                loader: 'babel-loader'
+            },
+            {
                 test: /\.css$/,
                 use:[
                     'style-loader',
@@ -34,6 +38,12 @@ const config = {
                 use:[
                 'style-loader',
                 'css-loader',
+                {
+                    loader:'postcss-loader',
+                    options:{
+                        sourceMap:true  //可以直接使用前面的sourceMap
+                    }
+                },
                 'stylus-loader'//一层一层往上扔
                 ]
             },
@@ -70,7 +80,7 @@ if(isDev){
     config.devtool = '#cheap-module-eval-source-map'//在页面调试代码
     config.devServer = {
         port:'8000',
-        host:'0.0.0.0', //可以用localhost:127.0.0.1访问也可以用本机内网IP访问（好处：可以用别人的电脑访问 或者手机链接电脑）
+        host:'127.0.0.1', //0.0.0.0 可以用localhost:127.0.0.1访问也可以用本机内网IP访问（好处：可以用别人的电脑访问 或者手机链接电脑）
         overlay:{
             errors:true  //把错误显示到网页上
         },
