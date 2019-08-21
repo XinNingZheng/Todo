@@ -1,11 +1,6 @@
 {
-    "presets":[
-        "env"  
-    ],
-    "plugins":[
-        "transform-vue-jsx"  //转化vue中的jsx代码
+    "presets": ["env"],
+    "plugins": [
+        "transform-vue-jsx"
     ]
-
 }
-
-//用vue的render方法 vue也可以写js代码
