@@ -1,45 +1,18 @@
-## 关于项目
+## 一些坑
 
-这是一个为了学习vue和webpack实现的一个todo-list demo。
+慕课网看到的这个项目，最坑的就是很多包和依赖都是两年前的版本，最新版本的会发生各种奇奇怪怪的冲突，调试能力差的小伙伴一定要下载这两个版本的依赖webpack@^3.10.0 vue vue-loader@^13.6.0，webpack4.0.0以上就会通篇报错，推荐看一下老师的笔记https://my.oschina.net/u/3018050/blog/1924538
 
-### 本项目webpack的版本为4.36.1
+# 笔记
 
-因为教程中很多知识都比较老了，很多包现在都被弃用。为了与时俱进，我用了最新版本的webpack，并使用了官方文档推荐的新npm包，来代替已经被弃用的包，具体包的配置，请大家参考[package.json](https://github.com/carrieguo/vue.js-todolist/blob/master/package.json)
+### vue
+相对于react，vue使用起来会更简单，因为vuex, vue router都是官方在维护，比react第三方维护要好很多。
 
-将项目克隆到本地之后，可通过以下三种方式下载项目依赖的包
-1. 通过npm 命令，但是由于国内网速限制，很容易失败(在国外或者有VPN的同学可以使用)
-```sh
-npm install
-```
-2. 通过cnpm命令, 需要安装淘宝镜像 http://npm.taobao.org/ 
-```sh
-cnpm install
-```
-3. yarn (推荐使用yarn,需要先安装yarn https://yarnpkg.com/lang/zh-hans/docs/install/#windows-stable)
-```sh
-yarn
-```
-
-运行命令
-```sh
-npm run dev
-```
-
-如果遇到问题，欢迎给我留言。
-
-
-以下是我的学习笔记，欢迎大家参考：
-
-# vue
-
-vue相对于react，使用起来会更简单，因为vuex, vue router都是官方在维护，比react第三方维护要好很多。
 ### 学习目标
 1. 重点学习核心实用方法
 2. 配置开发时前端工程
 3. webpack优化配置,网络优化，减少http请求，压缩静态资源文件，实用浏览器的长缓存让应用的流量变小，加快加载速度。
 
 ### 前端的价值：
-学习一门技术，考虑工程化问题，
 1. 搭建前端工程
 2. 网络优化 http的理解，缓存http请求
 3. API定制，前后端分离之后，与后端的交流借助于api接口
@@ -49,7 +22,7 @@ vue相对于react，使用起来会更简单，因为vuex, vue router都是官�
 因为vue-cli生成的项目，没有办法直接投入到生产环境中，它是一个广泛适用的模板，不同的项目有不同的定制需求，vue-cli是基于webpack的前端工程。
 
 webpack 用于打包前端资源, 前端资源有很多不同的类型 js, css, img, font 通过http请求加载，开发webapp时都是一整个js加载到浏览器端之后再把所有的内容渲染出来，很多时候都可以以js文件作为入口
-vscode 打开命令行 ctrl+`
+vscode 打开终端 ctrl+`
 
 ### 目录结构
 ```
@@ -101,7 +74,7 @@ npm install webpack vue vue-loader
 npm install css-loader vue-template-compiler
 ```
 
-### `app.vue`
+### app.vue
 ```js
 //.vue文件是vue的开发方式，位于根目录src文件夹下
 //vue要显示出来的模板
@@ -127,7 +100,7 @@ npm install css-loader vue-template-compiler
 </style>
 ```
 
-### `index.js 入口文件` 
+### index.js 入口文件`
 ```js
 import Vue from 'vue';
 import App from './app.vue';
@@ -143,7 +116,7 @@ new Vue({
 }).$mount(root)
 ```
 
-### `webpack.config.js`
+### webpack.config.js
 ```js
 const path = require('path');
 
@@ -200,12 +173,12 @@ module.exports = {
 
 ```
 
-### `安装相应的loader, url-loader 依赖 file-loader`
+### 安装相应的loader, url-loader 依赖 file-loader
 ```sh 
 npm i style-loader url-loader file-loader
 ```
 
-### `package.json`
+### package.json
 ```json
 //调用项目下的webpack， 如果不设置，运行webpack命令会调用全局环境的webpack
 "scripts": {
@@ -226,7 +199,6 @@ webpack 配置中需要添加 Vue Loader 的插件
 ## webpack-dev-server cross-env 
 webpack-dev-server 是一个webpack的包
 cross-env 在不同的环境上设置不同的环境变量不一样，cross-env解决了这个问题
-`安装`
 
 ```sh
 npm install webpack-dev-server
@@ -329,11 +301,11 @@ npm install --save-dev mini-css-extract-plugin
 
 构建工具 `webpack` 现在的前端开发基本上很多框架都会配合webpack一起使用
 
-> * `vue` 的 `vue-loader` 适用 `.vue`文件的开发模式
-> * `vue` 和 `react` 的 `babel-loader` 适用 `jsx`语法
-> * 处理静态资源，加`hash`后缀，提供浏览器长缓存，合理更新浏览器缓存
-> * 文件打包，合并，压缩
-> * 强大的loader体系和plugin体系
+> `vue` 的 `vue-loader` 适用 `.vue`文件的开发模式
+> `vue` 和 `react` 的 `babel-loader` 适用 `jsx`语法
+> 处理静态资源，加`hash`后缀，提供浏览器长缓存，合理更新浏览器缓存
+> 文件打包，合并，压缩
+> 强大的loader体系和plugin体系
 
 vue 开发已经离不开webpack,前端开发不仅仅是业务开发,学习vue不仅仅是api,要学习整个vue生态环境， vue-router, vuex, 组件开发，webpack配置。
 
