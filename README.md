@@ -31,29 +31,28 @@ vue todo project
 │   package.json
 |   package-lock.json   
 |   webpack.config.json 
-|   yarn.lock
 |   .babelrc
 |   .gitignore
 │
-└───dist
+└───dist(打包后的东西)
 │     bundle.js
 │   
-└───node_modules
+└───node_modules(乱七八糟的依赖)
 |     
 |
-└───src
+└───src(代码在这里)
     |   app.vue
     │   index.js
     |
     └───assests
         │   
-        └───images
+        └───images(图片)
         │       a.jpg
         │       b.jpg
-        └───styles
+        └───styles(样式)
         |       a.css
         |       style.styl
-        └────todo
+        └────todo(组件)
                 footer.jsx
                 header.vue
                 item.vue
